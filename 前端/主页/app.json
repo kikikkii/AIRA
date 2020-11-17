@@ -6,6 +6,7 @@
     "pages/Favorites/Favorites",
     "pages/Result/Result",
     "pages/BudgetResult/BudgetResult",
+    "pages/loading/loading",
     "pages/logs/logs"    
   ],
   "window":{
