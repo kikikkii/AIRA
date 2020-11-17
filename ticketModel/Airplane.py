@@ -1,28 +1,33 @@
 from django.db import models
 
-class Airplane(models.Model):
-    airplaneNumber = models.CharField(primary_key=True, max_length=20)
-    craftTypeCode = models.IntegerField()
-    airlineName = models.CharField(max_length=20)
-    craftType = models.CharField(max_length=10)
+class airplane(models.Model):
+    airplaneId = models.AutoField(primary_key=True)
+    craftTypeCode = models.IntegerField(null=True)
+    airlineName = models.CharField(max_length=20,null=True)
+    craftType = models.CharField(max_length=10,null=True)
 
-class Flight(models.Model):
-    flightNumber = models.CharField(primary_key=True, max_length=20)
-    departureCity = models.CharField(max_length=20)
-    arrivalCity = models.CharField(max_length=20)
-    departureTime = models.DateTimeField(auto_now=False,null=True)
-    arrivalTime = models.DateTimeField(auto_now=False,null=True)
-    departureAirportName = models.CharField(max_length=20)
-    arrivalAirportName = models.CharField(max_length=20)
+class flight(models.Model):
+    flightId = models.AutoField(primary_key=True)
+    flightNumber = models.CharField(max_length=20,null=True)
+    dcityNum = models.CharField(max_length=20,null=True)
+    acityNum = models.CharField(max_length=20,null=True)
+    dcityName = models.CharField(max_length=20,null=True)
+    acityName = models.CharField(max_length=20,null=True)
+    departureTime = models.DateField(auto_now=False,null=True)
+    arrivalTime = models.DateField(auto_now=False,null=True)
+    departureAirportName = models.CharField(max_length=20,null=True)
+    arrivalAirportName = models.CharField(max_length=20,null=True)
 
 class Ticket(models.Model):
-    flightNumber = models.ForeignKey('Flight',on_delete=models.CASCADE)
-    airplaneNumber = models.ForeignKey('Airplane',on_delete=models.CASCADE)
-    company = models.CharField(max_length=20)
-    price = models.IntegerField()
-    ticketType = models.CharField(max_length=20)
-    returnRule = models.CharField(max_length=100)
+    ticketId = models.AutoField(primary_key=True)
+    flightId = models.ForeignKey('flight',on_delete=models.CASCADE,null=True)
+    airplaneId = models.ForeignKey('airplane',on_delete=models.CASCADE,null=True)
+    companyId = models.ForeignKey('company',on_delete=models.CASCADE,null=True)
+    price = models.IntegerField(null=True)
+    dtime = models.TimeField(auto_now=False,null=True)
+    atime = models.TimeField(auto_now=False,null=True)
 
-class Company(models.Model):
-    company = models.CharField(max_length=20)
-    site = models.URLField()
+class company(models.Model):
+    companyId = models.AutoField(primary_key = True)
+    company = models.CharField(max_length=20,null=True)
+    site = models.URLField(null=True)
