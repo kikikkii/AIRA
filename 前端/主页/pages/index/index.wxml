@@ -1,35 +1,42 @@
-<!--index.wxml-->
-<view>
-  <!-- <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view> -->
-  <view>
+<view class="ContentBox">
+  <!-- 顶部图片 -->
+  <view class="TopBox">
     <image class="TopPlane" lazy-load="true" mode="widthFix" src="https://s1.ax1x.com/2020/11/09/BHLe4H.png" />
   </view>
+  <!-- 浮动在顶部盒子之上 -->
+  <view class="floatBox">
+    <!-- 城市选择 -->
+    <view class="SelectBox">
+      <navigator class="citySelect" url="../../pages/city/city"><text>{{citySelected}}</text><view class="iconfont iconnormalPlane"></view></navigator>
+    </view>
+    <!-- 日期选择 -->
+    <view class="DateBox"> 
+    <picker mode="date" value="{{date}}" start="2020/11/11" end="2025/11/11" bindchange="bindDateChange"> 
+      <view class="picker"> 
+      {{today}} 
+      </view> 
+    </picker> 
+    </view> 
+    <!-- 搜索 -->
+    <view class="SearchBox">
+      <navigator url="../../pages/Result/Result?dateSelected={{daySelected[2]}}&monthSelected={{daySelected[1]}}&yearSelected={{daySelected[0]}}&citySelected={{citySelected}}">
+        <text>搜索</text>
+      </navigator>
+    </view>
+  </view>
+
+  <!-- 提醒 -->
+  <view class="remindBox">
+    <view class="remindTitle">
+      <view class="title1">低价提醒</view>
+      <view class="title2">航班降价自动推送</view>
+    </view>
+    <navigator class="remindContent">添加提醒</navigator>
+  </view>
+</view>
+
+
+
+ 
   
-  <view  class='select_box'>
- <view class='select' catchtap='selectTap'>
-  <text class='select_text'>{{selectData[index]}}</text>
-  <image class='select_img {{show&&"select_img_rotate"}}' src='/image/gobottom.png'></image>   
- </view>
- <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
-  <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
- </view>
 
-
-</view>
-
-
-<!--
- show&&"select_img_rotate"-----给显示框右边的下拉箭头添加动画
-
- height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;-----给改变下拉框高度，实现下拉框的显示隐藏，每个下拉选项的高度为60，下拉框的最大高度这里设置的是300，所以这里写成当数据长度大于5时，下拉框高度为300，反之下拉框高度为数据长度乘以60
-
- index==selectData.length-1&&"border:0;"-----取消下拉选项的最后一个的下边框
- -->
-  <button bindtap="clickMe">搜索</button>
-</view>

@@ -1,1 +1,101 @@
 /* pages/Favorites/Favorites.wxss */
+page{
+  background-color: rgb(233,234,238);
+}
+
+.userInfoWrap{
+  height: 45vh;
+  position: relative;
+  background-color: var(--themeColor);
+  overflow: hidden;
+}
+.userImgWrap{
+  position: relative;
+}
+.userBg{
+  height: 50vh;
+  width: 100%;
+  /* 背景高斯模糊 */
+  filter: blur(10rpx);
+}
+
+.userinfo{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20%;
+  text-align: center;
+}
+
+.userIcon{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+
+.userName{
+  color: rgb(0, 0, 0);
+  margin-top: 40rpx;
+  font-size: 40rpx;
+}
+
+.userButton{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top:40%;
+  border: 1rpx solid rgb(254, 149, 18);
+  color: white;
+  font-size: 38rpx;
+  padding: 20rpx;
+  border-radius: 50rpx;
+  background-color: rgb(254, 149, 18);
+  width: 40%;
+  text-align: center;
+}
+
+.userContent{
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 10%;
+  margin-top: 20rpx;
+  
+}
+
+.userMain{
+  width: 100%;
+  display: flex;
+  border-radius: 16rpx;
+  border: white solid;
+  background-color: white;
+  flex-wrap: wrap;
+}
+
+.favorites,.userService{
+  width: 100%;
+  border-bottom: rgba(128, 128, 128, 0.164) solid 1px;
+}
+
+.iconticketHolder,.iconservice{
+  font-size: 56rpx;
+}
+
+.userMain navigator{
+  font-size: 36rpx;
+  padding: 20rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.serviceButton{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  font-size: 36rpx;
+  padding: 0rpx 30rpx;
+  
+}

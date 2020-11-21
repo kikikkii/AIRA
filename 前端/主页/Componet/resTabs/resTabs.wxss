@@ -1,0 +1,34 @@
+/* Componet/resTabs/resTabs.wxss */
+@import "../../styles/iconfont.wxss";
+
+.tabs{
+  background-color: rgba(68, 84, 109,0.9);
+  height: 100rpx;
+  display: flex;
+  border-radius: 12rpx 12rpx 0 0;
+}
+
+.tabsTitle{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+.titleItem{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+  color: #fff;
+}
+
+.active{
+  color: rgb(14, 122, 194);
+  background-color: rgb(40,55,74,0.6);
+}
+
+/* .tabsContent{
+
+} */
